@@ -1,47 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TabSelector extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeId: 'home'
-    };
-    this.handleChangeTab = this.handleChangeTab.bind(this);
-  }
+const TabSelector = props => {
 
-  handleChangeTab(event) {
-    const buttonId = event.target.id;
-    this.setState({ activeId: buttonId });
-  }
-
-  render() {
-    const { activeId } = this.state;
+    const { activeId, handleChangeTab } = props;
     return (
       <div className="TabSelector">
         <button
           id="home"
-          onClick={this.handleChangeTab}
+          onClick={handleChangeTab}
           className={activeId === 'home' ? 'active' : ''}
         >
           Home
         </button>
         <button
           id="about"
-          onClick={this.handleChangeTab}
+          onClick={handleChangeTab}
           className={activeId === 'about' ? 'active' : ''}
         >
           About
         </button>
         <button
           id="contact"
-          onClick={this.handleChangeTab}
+          onClick={handleChangeTab}
           className={activeId === 'contact' ? 'active' : ''}
         >
           Contact
         </button>
       </div>
     );
-  }
 }
 
 export default TabSelector;
